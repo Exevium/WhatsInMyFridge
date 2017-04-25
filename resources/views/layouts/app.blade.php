@@ -1,87 +1,75 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
+    <title>@yield('title') - What's In My Fridge</title>
+    <link href="{{ elixir('css/stylesheet.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ elixir('images/icon.png') }}" rel="icon" />
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+    <div class="page">
+        <div class="headerContainer">
+            <div class="headerLogo"><a href="/" class="menuButton"><img src="images/logoWhite.png" height="50" /></a></div>
+            <div class="headerFiller"></div>
+            <div>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
             </div>
-        </nav>
+            <div class="headerButton headerLogin">Login</div>
+            <a href="register.html" class="headerButton headerLogin">Register</a>
+            <div class="headerButton headerOptions"></div>
+        </div>
+        <div><img src="images/headerImage.jpg" class="headerImage" /></div>
+        <br />
+        <div class="menuContainer">
+            <a href="index.html" class="menuButton">Home</a>
+            <a href="ingredients.html" class="menuButton">Ingredients</a>
+            <a href="recipes.html" class="menuButton">Recipes</a>
+            <a href="button.html" class="menuButton">Button</a>
+        </div>
+        <div class="content">
+            <div class="column left">
+                <table border="0" class="ingredients">
+                    <tr><td class="header">Ingredients</td><td></td></tr>
+                    <tr><td class="content">1/2 cup mayonnaise</td></tr>
+                    <tr><td class="content">1 teaspoon Cajun seasoning</td></tr>
+                    <tr><td class="content">1 1/3 pounds ground beef sirloin</td></tr>
+                    <tr><td class="content">1 jalapeno pepper, seeded and chopped</td></tr>
+                    <tr><td class="content">1/2 cup diced white onion</td></tr>
+                    <tr><td class="content">1 clove garlic, minced</td></tr>
+                    <tr><td class="content">1 tablespoon Cajun seasoning</td></tr>
+                    <tr><td class="content">1 teaspoon Worcestershire sauce</td></tr>
+                    <tr><td class="content">4 slices pepperjack cheese</td></tr>
+                    <tr><td class="content">4 hamburger buns, split</td></tr>
+                    <tr><td class="content">4 leaves lettuce</td></tr>
+                    <tr><td class="content">4 slices tomato</td></tr>
+                </table>
+            </div>
+            <div class="column center">
+                <img src="images/recipes/texmex-burger.jpg" class="contentImage" />
+                <h1 class="center">Tex-Mex Burger with Cajun Mayo</h1>
+                <p>
+                    Preheat grill for medium-high heat. In a small bowl, mix together the mayonnaise and 1 teaspoon of Cajun seasoning. Set aside.
+                </p>
+                <p>
+                    In a large bowl, mix together the ground sirloin, jalapeno pepper, onion, garlic, 1 tablespoon Cajun seasoning, and Worcestershire sauce using your hands. Divide into 4 balls, and flatten into patties.
+                </p>
+                <p>
+                    Lightly oil the grilling surface, and place the patties on the grill. Cook for about 5 minutes per side, or until well done. During the last 2 minutes, lay a slice of cheese on top of each patty. Spread the seasoned mayonnaise onto the insides of the buns. Put burgers in the buns, and top with lettuce and tomato to serve.
+                </p>
+            </div>
+            <div class="column right">
+                <table border="0" class="ingredients">
+                    <tr><td class="header">Suggested recipes</td><td></td></tr>
+                    <tr><td class="content">Slider-style Mini Burgers</td></tr>
+                    <tr><td class="content">Big Smokey Burgers</td></tr>
+                    <tr><td class="content">Garlic and Onion Burgers</td></tr>
+                    <tr><td class="content">Game Day Hamburgers</td></tr>
+                    <tr><td class="content">Bacon Wrapped Hamburgers</td></tr>
+                </table>
 
-        @yield('content')
+            </div>
+        </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>
