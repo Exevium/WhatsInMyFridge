@@ -12,13 +12,34 @@
 */
 
 Route::get('/', function () {
-    return view('welcome'); // resources/views/welcome.blade.php
+	return view('welcome'); // resources/views/welcome.blade.php
 });
 
 Route::get('test', function () {
-    return view('test'); // resources/views/test.blade.php
+	return view('test');
 });
 
 Auth::routes();
 
+Route::get('/register', function () {
+	return view('register');
+});
+
 Route::get('/home', 'HomeController@index');
+
+/*Route::get('/home', function () {
+	return view('welcome'); // resources/views/welcome.blade.php
+});*/
+
+
+Route::get('/ingredients', function () {
+	return view('ingredients');
+});
+
+Route::get('/recipes', function () {
+	return view('recipes');
+});
+
+Route::get('/register', function () {
+	return view('register');
+});
